@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ort-Restaurant</title>
+  </head>
+  <body>
+    <div>
+      <img src="src/Imagenes/logo.jpg" alt="Logo ort restaurant" width="200" />
+
+      <h1>¡Bienvenido a ORT Restaurant!</h1>
+
+      <h2>Sugerencias del chef</h2>
+
+      <ul>
+        <li>Choripan</li>
+        <li>Ensalada César</li>
+        <li>Pan con Manteca</li>
+      </ul>
+
+      <h2>Nuestras redes sociales</h2>
+
+      <a href="https://www.facebook.com/ORTRestaurant">Facebook</a><br />
+      <a href="https://www.facebook.com/ORTRestaurant">Instagram</a><br />
+      <a href="https://www.facebook.com/ORTRestaurant">Twitter</a>
+
+      <h2>Reservar mesa</h2>
+
+      <label for="txtNombre">Nombre:</label>
+      <input
+        type="text"
+        id="txtNombre"
+        placeholder="Ingrese su nombre..."
+      /><br />
+
+      <label for="txtTelefono">Teléfono:</label>
+      <input
+        type="text"
+        id="txtTelefono"
+        placeholder="Ingrese su teléfono..."
+      /><br />
+
+      <label for="numCantidadPersonas">Cantidad de personas</label>
+      <input type="number" id="" /><br />
+
+      <label for="dteFecha">Fecha:</label>
+      <input type="date" id="dteFecha" /><br />
+
+      <label for="tmHora">Hora:</label>
+      <input type="time" id="tmHora" /><br />
+
+      <label for="slcMetodoDePago">Método de pago:</label>
+      <select id="slcMetodoDePago">
+        <option value="#">Seleccione...</option>
+        <option value="credito">Tarjeta de credito</option>
+        <option value="debito">Tarjeta de debito</option>
+        <option value="efectivo">Efectivo</option>
+      </select>
+
+      <h2>Horario</h2>
+
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Dia</th>
+            <th>Horario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lunes - Viernes</td>
+            <td>11:00AM - 10:00PM</td>
+          </tr>
+          <tr>
+            <td>Sabado - Domingo</td>
+            <td>12:00PM - 11:00PM</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Menu</h2>
+
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Aclaracion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <img src="src/Imagenes/chivito.png" alt="Chivito" width="200" />
+            </td>
+            <td>Chivito</td>
+            <td>
+              Preparado con tierna carne de res asada a la parrilla, rellena de
+              jugoso jamón, queso fundido, lechuga fresca, tomate maduro, huevo
+              frito, aceitunas y nuestra irresistible salsa especial.
+            </td>
+            <td rowspan="2">Solo disponible de martes a jueves</td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="src/Imagenes/lasagnaVerdura.png"
+                alt="Lasagna de verdura"
+                width="200"
+              />
+            </td>
+            <td>Lasagna de verdura</td>
+            <td>
+              Capas de pasta fresca intercaladas con una mezcla vibrante de
+              verduras de temporada, que incluyen calabacín, berenjena,
+              pimientos, espinacas y champiñones, todo cocido a la perfección en
+              nuestra salsa de tomate casera.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="src/Imagenes/panConManteca.png"
+                alt="Pan con manteca"
+                width="200"
+              />
+            </td>
+            <td>Pan con manteca</td>
+            <td>
+              Pan de campo recién horneado, servido con una exquisita
+              mantequilla artesanal.
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4">Consulte por los platos del dia</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <a href="login.html">Login para empleados</a>
+    </div>
+  </body>
+</html>
