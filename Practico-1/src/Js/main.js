@@ -157,19 +157,21 @@ function importeIva() {
 
   let importeTotal = calcularIva + importeIngresado;
 
-  document.querySelector("#pValorFinal").innerHTML = "El importe final es: " + importeTotal;
+  document.querySelector("#pValorFinal").innerHTML =
+    "El importe final es: " + importeTotal;
 }
 
 //Ejercicio 12
 document.querySelector("#btnImc").addEventListener("click", imcTotal);
 
 function imcTotal() {
-    let peso = Number(document.querySelector("#txtPeso").value);
-    let altura = Number(document.querySelector("#txtAltura").value);
-    
-    let imcFinal = peso / altura**2;
+  let peso = Number(document.querySelector("#txtPeso").value);
+  let altura = Number(document.querySelector("#txtAltura").value);
 
-    document.querySelector("#pImcTotal").innerHTML = "El IMC final es: " + imcFinal.toFixed(2);
+  let imcFinal = peso / altura ** 2;
+
+  document.querySelector("#pImcTotal").innerHTML =
+    "El IMC final es: " + imcFinal.toFixed(2);
 }
 
 //Ejercicio 13
@@ -178,7 +180,73 @@ document.querySelector("#btnAgregar").addEventListener("click", agregar);
 let clicks = 0;
 
 function agregar() {
-    clicks++;
-    
-    document.querySelector("#pAgregarUnidad").innerHTML = clicks;
+  clicks++;
+
+  document.querySelector("#pAgregarUnidad").innerHTML = clicks;
+}
+
+//Ejercicio 14
+document.querySelector("#btnCalcular2").addEventListener("click", sumaDeTres);
+
+let num = 0;
+
+function sumaDeTres() {
+  num = num + 3;
+  document.querySelector("#pSumarTres").innerHTML = num;
+}
+
+//Ejercicio 15
+document.querySelector("#btnAcumular").addEventListener("click", acumular);
+
+let sumaNum = 0;
+
+function acumular() {
+  let num = Number(document.querySelector("#txtAcumular").value);
+
+  sumaNum = sumaNum + num;
+}
+
+document.querySelector("#btnMostrar").addEventListener("click", mostrar);
+
+function mostrar(params) {
+  sumaNum;
+
+  document.querySelector("#pMostarTotal").innerHTML = sumaNum;
+}
+
+//Ejercicio 16
+document.querySelector("#btnPuntos").addEventListener("click", puntos);
+
+function puntos() {
+  let ganados = Number(document.querySelector("#txtGanados").value);
+  let empatados = Number(document.querySelector("#txtEmpatados").value);
+  let perdidos = Number(document.querySelector("#txtPerdidos").value);
+
+  let totalPuntos = ganados * 3 + empatados;
+
+  document.querySelector("#pPuntosTotal").innerHTML =
+    "Puntos totales: " + totalPuntos;
+}
+
+//Ejercicio 17
+document.querySelector("#btnFarenheit").addEventListener("click", farenheit);
+
+function farenheit() {
+  let chirridos = Number(document.querySelector("#txtChirridos").value);
+
+  let tempFarenheit = 50 + (chirridos - 40) / 4;
+
+  document.querySelector("#pFahrenheit").innerHTML =
+    "La temperatura en Farenheit es: " + tempFarenheit.toFixed(2);
+}
+
+document.querySelector("#btnCelsius").addEventListener("click", celsius);
+
+function celsius() {
+  let chirridos = Number(document.querySelector("#txtChirridos").value);
+
+  let tempCelsius = 10 + (chirridos - 40) / 7;
+
+  document.querySelector("#pCelsius").innerHTML =
+    "La temperatura en Celsius es: " + tempCelsius.toFixed(2);
 }
