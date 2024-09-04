@@ -110,12 +110,24 @@ document.querySelector("#btnEj9").addEventListener("click", ej9);
 
 function ej9() {
   let temp = Number(document.querySelector("#txtEj9").value);
-
+  let mensaje = "Levantarse <br>";
   let dia = document.querySelector("#txtEj9b").value;
 
-  if (temp) {
-    
+  if (temp > 20) {
+    mensaje += "Ponerse ropa comoda <br>";
+  } else if (temp < 10) {
+    mensaje += "Abrigarse mucho <br>";
+  } else {
+    mensaje += "Abrigo moderado <br>";
   }
+
+  if (dia !== "domingo") {
+    mensaje += "Ir al trabajo";
+  } else {
+    mensaje += "Quedarse en casa, hoy no trabaja";
+  }
+
+  document.querySelector("#pEj9").innerHTML = mensaje;
 }
 
 //Ejercicio 10
@@ -178,3 +190,171 @@ function ej11() {
 }
 
 //Ejercicio 12
+document.querySelector("#btnEj12").addEventListener("click", ej12);
+
+function ej12() {
+  let vocales = document.querySelector("#txtEj12").value;
+
+  switch (vocales) {
+    case "a":
+    case "A":
+    case "e":
+    case "E":
+    case "i":
+    case "I":
+    case "o":
+    case "O":
+    case "u":
+    case "U":
+      document.querySelector("#pEj12").innerHTML = "Es una vocal";
+      break;
+
+    default:
+      document.querySelector("#pEj12").innerHTML = "No es una vocal";
+      break;
+  }
+}
+
+//Ejercicio 13
+document.querySelector("#btnEj13").addEventListener("click", ej13);
+
+function ej13() {
+  let num1 = Number(document.querySelector("#txtEj13").value);
+  let num2 = Number(document.querySelector("#txtEj13b").value);
+  let mensaje = "";
+
+  if (num2 % num1 === 0) {
+    mensaje += "El primero es multiplo del segundo";
+  } else {
+    mensaje += "No es multiplo";
+  }
+
+  document.querySelector("#pEj13").innerHTML = mensaje;
+}
+
+//Ejercicio 14
+document.querySelector("#btnEj14").addEventListener("click", ej14);
+
+function ej14() {
+  let millas = Number(document.querySelector("#txtEj14").value);
+  let mensaje = "";
+  let planPlus = document.querySelector("#txtPlanPlus").value;
+
+  if (planPlus === "s") {
+    millas *= 2;
+  }
+
+  if (millas >= 60000) {
+    mensaje += "El destino mas lejano es: Europa";
+  } else if (millas >= 30000 && millas < 60000) {
+    mensaje += "El destino mas lejano es: América del Norte";
+  } else if (millas >= 15000 && millas < 30000) {
+    mensaje += "El destino mas lejano es: América del Sur";
+  } else {
+    mensaje += "No tienes millas suficientes";
+  }
+  document.querySelector("#pEj14").innerHTML = mensaje;
+}
+
+//Ejercicio 15
+document.querySelector("#btnEj15").addEventListener("click", ej15);
+
+function ej15() {
+  let dpto = document.querySelector("#slcEj15").value;
+  let mensaje = "El departamento es: ";
+
+  switch (dpto) {
+    case "a":
+      mensaje += "Canelones";
+      break;
+    case "b":
+      mensaje += "Maldonado";
+      break;
+    case "c":
+      mensaje += "Rocha";
+      break;
+    case "d":
+      mensaje += "Treinta y Tres";
+      break;
+    case "e":
+      mensaje += "Cerro Largo";
+      break;
+    case "f":
+      mensaje += "Rivera";
+      break;
+    case "g":
+      mensaje += "Artigas";
+      break;
+    case "h":
+      mensaje += "Salto";
+      break;
+    case "i":
+      mensaje += "Paysandú";
+      break;
+    case "j":
+      mensaje += "Rio Negro";
+      break;
+    case "k":
+      mensaje += "Soriano";
+      break;
+    case "l":
+      mensaje += "Colonia";
+      break;
+    case "m":
+      mensaje += "San José";
+      break;
+    case "n":
+      mensaje += "Flores";
+      break;
+    case "o":
+      mensaje += "Florida";
+      break;
+    case "p":
+      mensaje += "Lavalleja";
+      break;
+    case "q":
+      mensaje += "Durazno";
+      break;
+    case "r":
+      mensaje += "Tacuarembó";
+      break;
+    case "s":
+      mensaje += "Montevideo";
+      break;
+
+    default:
+      break;
+  }
+
+  document.querySelector("#pEj15").innerHTML = mensaje;
+}
+
+//Ejercicio 16
+document.querySelector("#btnEj16").addEventListener("click", ej16);
+
+function ej16() {
+  let a = Number(document.querySelector("#txtEj16").value);
+  let b = Number(document.querySelector("#txtEj16b").value);
+  let c = Number(document.querySelector("#txtEj16c").value);
+  let mensaje = "";
+
+  if (a > b && a > c) {
+    mensaje += "a es el mayor de los 3";
+  }
+
+  document.querySelector("#parrafo").innerHTML = mensaje;
+}
+
+//Ejercicio 17
+document.querySelector("#btnEj17").addEventListener("click", ej17);
+
+function ej17() {
+  let a = Number(document.querySelector("#txtEj17").value);
+  let mensaje = "";
+  
+  if (a < 0 || a > 10) {
+    mensaje += "a esta fuera de rango";
+  }
+
+  document.querySelector("#parrafoB").innerHTML = mensaje;
+}
