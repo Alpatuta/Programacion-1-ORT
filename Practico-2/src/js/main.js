@@ -104,3 +104,69 @@ function ej8() {
     document.querySelector("#pEj8").innerHTML = "Entre 10 y 30";
   }
 }
+
+//Ejercicio 9
+document.querySelector("#btnEj9").addEventListener("click", ej9);
+
+function ej9() {}
+
+//Ejercicio 10
+document.querySelector("#btnEj10").addEventListener("click", ej10);
+
+function ej10() {
+  let num1 = Number(document.querySelector("#txtEj10").value);
+
+  let num2 = Number(document.querySelector("#txtEj10b").value);
+
+  if (num1 > num2) {
+    let resultado = num1 - num2;
+
+    document.querySelector("#pEj10").innerHTML =
+      "El resultado final es: " + resultado;
+  } else if (num2 > num1) {
+    let resultado2 = num2 - num1;
+
+    document.querySelector("#pEj10").innerHTML =
+      "El resulatdo final es: " + resultado2;
+  }
+}
+
+//Ejercicio 11
+document.querySelector("#btnEj11").addEventListener("click", ej11);
+
+function ej11() {
+  let num1 = Number(document.querySelector("#txtEj11").value);
+  let num2 = Number(document.querySelector("#txtEj11b").value);
+  let operacion = document.querySelector("#txtEj11c").value;
+
+  if (
+    operacion !== "M" &&
+    operacion !== "S" &&
+    operacion !== "R" &&
+    operacion !== "D"
+  ) {
+    alert("Ingrese un valor de operacion valido");
+  } else if (operacion === "M") {
+    let resultadoM = num1 * num2;
+
+    document.querySelector("#pEj11").innerHTML =
+      "El resulato del producto es: " + resultadoM;
+  } else if (operacion === "S") {
+    let resultadoS = num1 + num2;
+
+    document.querySelector("#pEj11").innerHTML =
+      "El resultado de la suma es: " + resultadoS;
+  } else if (operacion === "R") {
+    let resultadoR = num1 - num2;
+
+    document.querySelector("#pEj11").innerHTML =
+      "El resultado de la suma es: " + resultadoR;
+  } else if (operacion === "D") {
+    let resultadoD = num1 / num2;
+
+    document.querySelector("#pEj11").innerHTML =
+      "El resultado de la division es :" + resultadoD.toFixed(2);
+  }
+}
+
+//Ejercicio 12
