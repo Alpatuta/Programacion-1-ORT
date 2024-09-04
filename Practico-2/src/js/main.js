@@ -108,7 +108,15 @@ function ej8() {
 //Ejercicio 9
 document.querySelector("#btnEj9").addEventListener("click", ej9);
 
-function ej9() {}
+function ej9() {
+  let temp = Number(document.querySelector("#txtEj9").value);
+
+  let dia = document.querySelector("#txtEj9b").value;
+
+  if (temp) {
+    
+  }
+}
 
 //Ejercicio 10
 document.querySelector("#btnEj10").addEventListener("click", ej10);
