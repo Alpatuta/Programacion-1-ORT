@@ -351,10 +351,212 @@ document.querySelector("#btnEj17").addEventListener("click", ej17);
 function ej17() {
   let a = Number(document.querySelector("#txtEj17").value);
   let mensaje = "";
-  
+
   if (a < 0 || a > 10) {
     mensaje += "a esta fuera de rango";
   }
 
   document.querySelector("#parrafoB").innerHTML = mensaje;
 }
+
+//Ejercicio 18
+document.querySelector("#btnEj18").addEventListener("click", ej18);
+
+let contador = 0;
+let contador2 = 0;
+
+function ej18() {
+  let number = Number(document.querySelector("#txtEj18").value);
+
+  if (number < 0) {
+    number = number * -1;
+  }
+
+  contador += number;
+  contador2++;
+  document.querySelector(
+    "#pEj18"
+  ).innerHTML = `Numeros ingresados: ${contador2} <br> Suma total del valor absoluto de los numeros: ${contador}`;
+}
+
+//Ejercicio 19
+document.querySelector("#btnEj19").addEventListener("click", ej19);
+
+let interseccion = 0;
+let mayorVeinte = 0;
+let multiplo = 0;
+
+function ej19() {
+  let number = Number(document.querySelector("#txtEj19").value);
+
+  if (number % 5 === 0) {
+    multiplo++;
+  }
+
+  if (number > 20) {
+    mayorVeinte++;
+  }
+
+  if (number % 5 === 0 && number > 20) {
+    interseccion++;
+  }
+
+  document.querySelector(
+    "#pEj19"
+  ).innerHTML = `Numeros multiplos de 5: ${multiplo} <br> Numeros mayor a 20: ${mayorVeinte} <br> Numeros multiplos de 5 y mayor a 20: ${interseccion}`;
+}
+
+//Ejercicio 20
+document.querySelector("#btnEj20").addEventListener("click", ej20);
+
+function ej20() {
+  let azucar = Number(document.querySelector("#txtEj20").value);
+  let harina = Number(document.querySelector("#txtEj20b").value);
+  let aceite = Number(document.querySelector("#txtEj20c").value);
+  let agua = Number(document.querySelector("#txtEj20d").value);
+
+  let galletaHarina = harina / 100;
+  let cantidadGalletas = galletaHarina;
+  if (galletaHarina < cantidadGalletas) {
+    cantidadGalletas = galletaHarina;
+  }
+  if (azucar < cantidadGalletas) {
+    cantidadGalletas = azucar;
+  }
+  if (aceite < cantidadGalletas) {
+    cantidadGalletas = aceite;
+  }
+  if (agua < cantidadGalletas) {
+    cantidadGalletas = agua;
+  }
+
+  document.querySelector(
+    "#pEj20"
+  ).innerHTML = `La cantidad de galletas que puedes realizar es: ${cantidadGalletas}`;
+}
+
+//Ejercicio 21
+document.querySelector("#btnEj21").addEventListener("click", ej21);
+
+function ej21(params) {
+  let ingresos = Number(document.querySelector("#txtEj21").value);
+  let valorCasa = Number(document.querySelector("#txtEj21b").value);
+
+  let valorPcuota = (valorCasa * 15) / 100;
+  let valorPlusCuota = (valorCasa * 30) / 100;
+
+  if (ingresos < 20000) {
+    let valorCuotaRest = valorCasa - valorPcuota;
+    valorCuotaRest = valorCuotaRest / 84;
+
+    document.querySelector(
+      "#pEj21"
+    ).innerHTML = `El valor de la primer cuota es de: ${valorPcuota} y el valor de la cuota es de: ${valorCuotaRest.toFixed(
+      2
+    )}`;
+  }
+
+  if (ingresos >= 20000) {
+    let valorCuotaRest = valorCasa - valorPlusCuota;
+    valorCuotaRest = valorCuotaRest / 12;
+
+    document.querySelector(
+      "#pEj21"
+    ).innerHTML = `El valor de la primer cuota es de: ${valorPlusCuota} y el valor de la cuota es de: ${valorCuotaRest}`;
+  }
+}
+
+//Ejercicio 22
+document.querySelector("#btnEj22").addEventListener("click", ej22);
+
+function ej22() {
+  let monto = Number(document.querySelector("#txtEj22").value);
+  let tarjeta = document.querySelector("#slcEj22").value;
+  let mensaje = "";
+
+  if (tarjeta === "S" && monto < 10000) {
+    monto = monto - (monto * 4) / 100;
+    mensaje += `El monto total es: ${monto}`;
+  } else if (tarjeta === "N" || monto >= 10000) {
+    monto = monto;
+    mensaje += `El monto total es: ${monto}`;
+  }
+
+  document.querySelector("#pEj22").innerHTML = mensaje;
+}
+
+//Ejercicio 23
+document.querySelector("#btnEj23").addEventListener("click", ej23);
+
+let cantidadDeNotasNA = 0;
+let cantidadDeNotasA = 0;
+let cantidadDeNotasB = 0;
+let sumaNotas = 0;
+let cantidadDeNotasTotal = 0;
+let notaMin = null;
+let notaMax = null;
+
+function ej23() {
+  let notas = Number(document.querySelector("#txtEj23").value);
+
+  if (notas < 70) {
+    cantidadDeNotasNA++;
+    cantidadDeNotasTotal++;
+    sumaNotas = sumaNotas + notas;
+  } else if (notas >= 70 && notas < 90) {
+    cantidadDeNotasA++;
+    cantidadDeNotasTotal++;
+    sumaNotas = sumaNotas + notas;
+  } else if (notas >= 90 && notas <= 100) {
+    cantidadDeNotasB++;
+    cantidadDeNotasTotal++;
+    sumaNotas = sumaNotas + notas;
+  }
+
+  if (notaMax === null || notaMax < notas) {
+    notaMax = notas;
+  }
+
+  if (notaMin === null || notaMin > notas) {
+    notaMin = notas;
+  }
+  let promedio = sumaNotas / cantidadDeNotasTotal;
+
+  document.querySelector(
+    "#pEj23"
+  ).innerHTML = `Cantidad de no aprobados: ${cantidadDeNotasNA} <br>
+    Cantidad de aprobados: ${cantidadDeNotasA} <br>
+    Cantidad de notas excelentes: ${cantidadDeNotasB}<br> 
+    El promedios de las notas es: ${promedio.toFixed(2)} <br>
+    Nota maxima: ${notaMax} <br>
+    Nota minima: ${notaMin}`;
+}
+
+//Ejercicio 24
+document.querySelector("#btnEj24").addEventListener("click", ej24);
+
+let sumaSueldo = 0;
+let sumaCobraMes = 0;
+let sueldoMinimo = null;
+
+function ej24() {
+  let sueldo = Number(document.querySelector("#txtEj24").value);
+  let cobraMes = document.querySelector("#slcEj24").value;
+
+  sumaSueldo = sumaSueldo + sueldo;
+
+  if (cobraMes === "S") {
+    sumaCobraMes++;
+  }
+
+  if (sueldoMinimo === null || sueldoMinimo > sueldo) {
+    sueldoMinimo = sueldo;
+  }
+
+  document.querySelector(
+    "#pEj24"
+  ).innerHTML = `La suma de las sueldos es: ${sumaSueldo} <br>
+    Cantidad de sueldos que cobran este mes: ${sumaCobraMes} <br> Sueldo minimo: ${sueldoMinimo}`;
+}
+
+//Ejercicio 25
