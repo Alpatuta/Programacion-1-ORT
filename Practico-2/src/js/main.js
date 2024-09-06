@@ -560,3 +560,36 @@ function ej24() {
 }
 
 //Ejercicio 25
+document.querySelector("#btnEj25").addEventListener("click", ej25);
+
+let stock = 50;
+let cantidadDePedidos = 0;
+let camarasMaxima = null;
+let nombreMaximo = "";
+
+function ej25() {
+  let nombre = document.querySelector("#txtEj25").value;
+  let camaras = Number(document.querySelector("#txtEj25b").value);
+
+  if (nombreMaximo === "") {
+    nombreMaximo = nombre;
+  }
+
+  if (camarasMaxima === null || camarasMaxima < camaras) {
+    camarasMaxima = camaras;
+  }
+
+  if (stock > 0 && stock >= camaras) {
+    cantidadDePedidos++;
+    stock = stock - camaras;
+    document.querySelector(
+      "#pEj25"
+    ).innerHTML = `Bienvenido ${nombre}, haz comprado ${camaras} camaras <br> Cantidad de pedidos: ${cantidadDePedidos} <br> Stock restante: ${stock} <br> ${nombreMaximo} compro la maxima cantidad de camaras con : ${camarasMaxima} camaras`;
+  } else {
+    document.querySelector("#pEj25").innerHTML = `Lo sentimos, no hay stock`;
+  }
+
+  if (stock === 0) {
+    document.querySelector("#btnEj25").disabled = true;
+  }
+}
