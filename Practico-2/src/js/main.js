@@ -417,9 +417,7 @@ function ej20() {
 
   let galletaHarina = harina / 100;
   let cantidadGalletas = galletaHarina;
-  if (galletaHarina < cantidadGalletas) {
-    cantidadGalletas = galletaHarina;
-  }
+
   if (azucar < cantidadGalletas) {
     cantidadGalletas = azucar;
   }
@@ -432,7 +430,9 @@ function ej20() {
 
   document.querySelector(
     "#pEj20"
-  ).innerHTML = `La cantidad de galletas que puedes realizar es: ${cantidadGalletas}`;
+  ).innerHTML = `La cantidad de galletas que puedes realizar es: ${Math.floor(
+    cantidadGalletas
+  )}`;
 }
 
 //Ejercicio 21
@@ -592,4 +592,71 @@ function ej25() {
   if (stock === 0) {
     document.querySelector("#btnEj25").disabled = true;
   }
+}
+
+//Ejercicio 26
+document.querySelector("#btnEj26").addEventListener("click", ej26);
+
+function ej26() {
+  let noches = Number(document.querySelector("#txtEj26").value);
+  let mPago = document.querySelector("#slcMetodoPago").value;
+  let precioNoche = 40;
+  let precioTotal = 0;
+  let mensaje = "";
+
+  if (mPago === "T" && noches >= 7) {
+    precioTotal = noches * precioNoche;
+    noches = noches + 3;
+    mensaje += `El monto total es de: ${precioTotal} <br> Noches totales ${noches}`;
+  } else if (noches < 7 && noches >= 3 && mPago === "T") {
+    precioTotal = noches * precioNoche;
+    noches = noches + 1;
+    mensaje += `El monto total es de: ${precioTotal} <br> Noches totales ${noches}`;
+  } else if (noches < 3 && mPago === "T") {
+    precioTotal = noches * precioNoche;
+    mensaje += `El monto total es de: ${precioTotal} <br> Noches totales ${noches}`;
+  }
+
+  if (mPago === "E" && noches >= 7) {
+    precioTotal = noches * precioNoche;
+    noches = noches + 2;
+    mensaje += `El monto total es de: ${precioTotal} <br> Noches totales ${noches}`;
+  } else if (noches < 7 && noches >= 3 && mPago === "E") {
+    precioTotal = noches * precioNoche;
+    noches++;
+    mensaje += `El monto total es de: ${precioTotal} <br> Noches totales ${noches}`;
+  } else if (noches < 3 && mPago === "E") {
+    precioTotal = noches * precioNoche;
+    mensaje += `El monto total es de: ${precioTotal} <br> Noches totales ${noches}`;
+  }
+
+  document.querySelector("#pEj26").innerHTML = mensaje;
+}
+
+//Ejercicio 27
+
+document.querySelector("#btnJugadores").addEventListener("click", adivinar);
+
+let contadorJuego = 0;
+
+function adivinar() {
+  contador++;
+  let num1 = Number(document.querySelector("#txtJugador1").value);
+  let num2 = Number(document.querySelector("#txtJugador2").value);
+  let mensaje = "";
+  let distancia = Math.abs(num1 - num2);
+
+  if (distancia >= 1 && distancia <= 4) {
+    mensaje += "Muy pero mut cerca";
+  } else if (distancia >= 5 && distancia <= 9) {
+    mensaje += "Cada vez mas cerca";
+  } else if (distancia >= 10 && distancia <= 15) {
+    mensaje += "Te estas acercando";
+  } else if (distancia === 0) {
+    mensaje += "Acertaste <br> Cantidad de intentos: " + contadorJuego;
+  } else {
+    mensaje += "Estas lejos";
+  }
+
+  document.querySelector("#pJugadores").innerHTML = mensaje;
 }
