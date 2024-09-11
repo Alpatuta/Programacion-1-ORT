@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -332,14 +332,21 @@
     <!-- Ejercicio 25 -->
     <div>
       <h3>Ejercicio 25</h3>
+
+      <label for="txtStock">Ingrese el stock: </label>
+      <input type="text" id="txtStock">
+      <input type="button" value="Ingresar stock" id="btnStock" /><br /><br />
+
       <label for="txtEj25">Ingrese su nombre: </label>
-      <input type="text" id="txtEj25" /><br />
+      <input type="text" id="txtEj25" /><br /><br>
 
       <label for="txtEj25b">Cantidad de camaras que desea: </label>
-      <input type="text" id="txtEj25b" /><br />
+      <input type="text" id="txtEj25b" /><br /><br>
 
       <input type="button" value="Calcular" id="btnEj25" />
       <p id="pEj25"></p>
+      <p id="pClienteMax"></p>
+      <p id="pResultado"></p>
     </div>
     <hr />
 
@@ -370,6 +377,8 @@
         >Ingrese el numero a adivinar (entre 1 y 100):
       </label>
       <input type="text" id="txtJugador1" /><br />
+      <input type="button" value="Ingresar" id="btnIngresar">
+      <input type="button" value="VS computadora" id="btnCompu">
 
       <h4>Jugador 2</h4>
       <label for="txtJugador2">Adivina el numero: </label>
@@ -377,6 +386,25 @@
 
       <input type="button" value="Adivina" id="btnJugadores" />
       <p id="pJugadores"></p>
+    </div>
+    <hr />
+
+    <!-- Ejercicio 28 -->
+    <div>
+      <h3>Ejercicio 28</h3>
+      <label for="txtEquipo1">Puntaje equipo 1: </label>
+      <input type="text" id="txtEquipo1" />
+
+      <input type="button" value="Puntaje E1" id="btnEq1" /><br />
+
+      <label for="txtEquipo2">Puntaje equipo 2: </label>
+      <input type="text" id="txtEquipo2" />
+
+      <input type="button" value="Puntaje E2" id="btnEq2"/><br />
+
+      <p id="pEquipo1"></p>
+      <p id="pEquipo2"></p>
+      <p id="pPuntajeTotal"></p>
     </div>
     <script src="src/js/main.js"></script>
   </body>

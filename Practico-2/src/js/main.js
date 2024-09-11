@@ -561,36 +561,41 @@ function ej24() {
 
 //Ejercicio 25
 document.querySelector("#btnEj25").addEventListener("click", ej25);
+document.querySelector("#btnStock").addEventListener("click", iStock);
 
-let stock = 50;
+let stock;
 let cantidadDePedidos = 0;
-let camarasMaxima = null;
-let nombreMaximo = "";
+let camarasMaxima = 0;
+let nombreMaximo;
+
+function iStock() {
+  stock = Number(document.querySelector("#txtStock").value);
+  document.querySelector("#txtStock").value = "";
+  
+}
 
 function ej25() {
   let nombre = document.querySelector("#txtEj25").value;
   let camaras = Number(document.querySelector("#txtEj25b").value);
 
-  if (nombreMaximo === "") {
-    nombreMaximo = nombre;
-  }
-
-  if (camarasMaxima === null || camarasMaxima < camaras) {
-    camarasMaxima = camaras;
-  }
-
-  if (stock > 0 && stock >= camaras) {
+  if (camaras <= stock) {
+    stock -= camaras;
     cantidadDePedidos++;
-    stock = stock - camaras;
-    document.querySelector(
-      "#pEj25"
-    ).innerHTML = `Bienvenido ${nombre}, haz comprado ${camaras} camaras <br> Cantidad de pedidos: ${cantidadDePedidos} <br> Stock restante: ${stock} <br> ${nombreMaximo} compro la maxima cantidad de camaras con : ${camarasMaxima} camaras`;
-  } else {
-    document.querySelector("#pEj25").innerHTML = `Lo sentimos, no hay stock`;
-  }
+    document.querySelector("#pEj25").innerHTML = "Cantidad de pedidos: " + cantidadDePedidos;
 
-  if (stock === 0) {
-    document.querySelector("#btnEj25").disabled = true;
+    if (camaras > camarasMaxima) {
+      camarasMaxima = camaras;
+      nombreMaximo = nombre;
+      document.querySelector("#pClienteMax").innerHTML = "Cliente con mayor compras: " + nombreMaximo;
+    }
+
+    document.querySelector("#pResultado").innerHTML = "Compra exitosa";
+
+    if (stock === 0) {
+      document.querySelector("#btnEj25").disabled = true;
+    }else{
+      document.querySelector("#pResultado").innerHTML = "No hay stock";
+    }
   }
 }
 
@@ -634,20 +639,39 @@ function ej26() {
 }
 
 //Ejercicio 27
-
+document.querySelector("#btnIngresar").addEventListener("click", ingresar);
 document.querySelector("#btnJugadores").addEventListener("click", adivinar);
+document.querySelector("#btnCompu").addEventListener("click", compu);
+
 
 let contadorJuego = 0;
+let num1;
+
+function ingresar() {
+  let mensaje2 = "";
+  num1 = Number(document.querySelector("#txtJugador1").value);
+  document.querySelector("#txtJugador1").value = "";
+  if (num1 < 1 || num1 > 100) {
+    mensaje2 += "Ingrese un numero entre 1 y 100";
+  }
+
+  document.querySelector("#pJugadores").innerHTML = mensaje2;
+}
+
+function compu() {
+  num1 = Math.floor((Math.random() * 100) + 1);
+  
+
+}
 
 function adivinar() {
-  contador++;
-  let num1 = Number(document.querySelector("#txtJugador1").value);
+  contadorJuego ++;
   let num2 = Number(document.querySelector("#txtJugador2").value);
   let mensaje = "";
   let distancia = Math.abs(num1 - num2);
 
   if (distancia >= 1 && distancia <= 4) {
-    mensaje += "Muy pero mut cerca";
+    mensaje += "Muy pero muy cerca";
   } else if (distancia >= 5 && distancia <= 9) {
     mensaje += "Cada vez mas cerca";
   } else if (distancia >= 10 && distancia <= 15) {
@@ -659,4 +683,43 @@ function adivinar() {
   }
 
   document.querySelector("#pJugadores").innerHTML = mensaje;
+}
+
+//Ejercicio 28
+document.querySelector("#btnEq1").addEventListener("click", team1);
+document.querySelector("#btnEq2").addEventListener("click", team2);
+
+let mensajeE1 = "";
+let mensajeE2 = "";
+let totalScore1 = 0;
+let totalScore2 = 0;
+
+function team1() {
+  let puntaje1 = Number(document.querySelector("#txtEquipo1").value);
+  totalScore1 += puntaje1;
+  mensajeE1 = `El puntaje del equipo 1 es: ${totalScore1}`;
+
+  document.querySelector("#pEquipo1").innerHTML = mensajeE1;
+
+  if (totalScore1 >= 30 || totalScore2 >= 30 ) {
+    document.querySelector("#btnEq1").disabled = true;
+    document.querySelector("#btnEq2").disabled = true;
+    mensajeE2 += `Puntaje final del equipo 1: ${totalScore1} <br> Puntaje final equipo 2: ${totalScore2}`;
+    document.querySelector("#pPuntajeTotal").innerHTML = `Fin de partida <br> ${mensajeE2}`;
+  }
+}
+
+function team2() {
+  let puntaje2 = Number(document.querySelector("#txtEquipo2").value);
+  totalScore2 += puntaje2;
+  mensajeE1 = `<br>El puntaje del equipo 2 es: ${totalScore2}`;
+  
+  document.querySelector("#pEquipo2").innerHTML = mensajeE1;
+
+  if (totalScore1 >= 30 || totalScore2 >= 30 ) {
+    document.querySelector("#btnEq1").disabled = true;
+    document.querySelector("#btnEq2").disabled = true;
+    mensajeE2 += `Puntaje final del equipo 1: ${totalScore1} <br> Puntaje final equipo 2: ${totalScore2}`;
+    document.querySelector("#pPuntajeTotal").innerHTML = `Fin de partida <br> ${mensajeE2}`;
+  }
 }
