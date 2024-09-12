@@ -91,14 +91,66 @@ function ej7() {
 document.querySelector("#btnIngresar").addEventListener("click", ej8);
 
 function ej8() {
-    let num1 = Number(document.querySelector("#txtNum1").value);
-    let num2 = Number(document.querySelector("#txtNum2").value);
-    let msj7 = "";
+  let num1 = Number(document.querySelector("#txtNum1").value);
+  let num2 = Number(document.querySelector("#txtNum2").value);
+  let msj7 = "";
 
-    for (num1; num1 >= num2; num1++){
-        msj7 += num1;
+  if (num1 > num2) {
+    for (num1; num1 >= num2; num1--) {
+      msj7 += num1 + ", ";
     }
+  } else if (num2 > num1) {
+    for (num2; num2 >= num1; num2--) {
+      msj7 += num2 + ", ";
+    }
+  }
 
-    document.querySelector("#pEj8").innerHTML = msj7;
+  document.querySelector("#pEj8").innerHTML = msj7;
+}
 
+//Ejercicio 9
+document.querySelector("#btnCalcular").addEventListener("click", ej9);
+
+function ej9() {
+  let valor1 = Number(document.querySelector("#txtValor1").value);
+  let valor2 = Number(document.querySelector("#txtValor2").value);
+  let msj8 = "";
+  let resultado = 0;
+
+  for (let i = 0; i < Math.abs(valor2); i++) {
+    resultado += valor1;
+  }
+  msj8 += `El resultado es: ${resultado} <br>`;
+
+  document.querySelector("#pCalcular").innerHTML = msj8;
+}
+
+//Ejercicio 10
+document.querySelector("#btnEj10").addEventListener("click", ej10);
+
+function ej10() {
+  let num1 = Number(document.querySelector("#txtEj10").value);
+  let num2 = Number(document.querySelector("#txtEj10b").value);
+  let msj9 = "";
+  let resultado2 = num1;
+
+  for (let i = num1; i <= num2; i++) {
+    resultado2 *= num2;
+  }
+
+  msj9 += `El resultado es: ${resultado2}`;
+
+  document.querySelector("#pEj10").innerHTML = msj9;
+}
+
+//Ejercicio 11
+
+document.querySelector("#btnEj11").addEventListener("click", ej11);
+
+function ej11() {
+  let num1 = Number(document.querySelector("#txtEj11").value);
+  let num2 = Number(document.querySelector("#txtEj11b").value);
+  let num3 = Number(document.querySelector("#txtEj11c").value);
+  let msj10 = "";
+  let resultado3 = 0;
 }
