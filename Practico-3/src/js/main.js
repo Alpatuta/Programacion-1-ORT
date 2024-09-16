@@ -297,3 +297,19 @@ function ej17() {
 }
 
 //Ejercicio 18
+document.querySelector("#btnEj18").addEventListener("click", ej18);
+
+function ej18() {
+  let num1 = Number(document.querySelector("#txtEj18").value);
+  let msj17 = "";
+  let total = 0;
+
+  for (let i = 30; i <= 200; i++) {
+    if (i % num1 === 0 && i % 2 === 0) {
+      total += i;
+      msj17 += `${i}, `;
+    }
+  }
+
+  document.querySelector("#pEj18").innerHTML = `Los numeros son: ${msj17} `;
+}
