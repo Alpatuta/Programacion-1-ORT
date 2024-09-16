@@ -243,3 +243,57 @@ function ej15() {
 
   document.querySelector("#pEj15").innerHTML = msj14;
 }
+
+//Ejercicio 16
+document.querySelector("#btnEj16").addEventListener("click", ej16);
+
+function ej16() {
+  let num1 = Number(document.querySelector("#txtEj16").value);
+  let num2 = Number(document.querySelector("#txtEj16b").value);
+  let msj15 = "";
+  let numDeseado = 0;
+  let cortaCiclos = false;
+
+  if (num1 < num2) {
+    for (let i = num1; i <= num2 && !cortaCiclos; i++) {
+      if (i % 4 === 0 && i % 6 === 0) {
+        numDeseado = i;
+        cortaCiclos = true;
+        msj15 += `El numero deseado es: ${numDeseado}`;
+      } else {
+        cortaCiclos = true;
+        msj15 += "No hay numeros que cumplan con las condiciones";
+      }
+    }
+  } else {
+    msj15 += "Ingrese un numero correcto num2 tiene que ser mayor a num1";
+  }
+
+  document.querySelector("#pEj16").innerHTML = msj15;
+}
+
+//Ejercicio 17
+document.querySelector("#btnEj17").addEventListener("click", ej17);
+
+function ej17() {
+  let dividendo = Number(document.querySelector("#txtEj17").value);
+  let divisor = Number(document.querySelector("#txtEj17b").value);
+  let cociente = 0;
+  let resto = 0;
+  let msj16 = "";
+
+  if (dividendo > divisor) {
+    for (let i = dividendo; i >= divisor; i -= divisor) {
+      cociente++;
+      resto = i - divisor;
+    }
+    msj16 += `El cociente es: ${cociente} y el resto es: ${resto}`;
+  } else {
+    msj16 +=
+      "Ingrese un numero correcto, el dividendo debe ser mayor al divisor";
+  }
+
+  document.querySelector("#pEj17").innerHTML = msj16;
+}
+
+//Ejercicio 18
