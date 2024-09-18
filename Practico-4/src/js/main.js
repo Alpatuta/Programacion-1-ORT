@@ -1,5 +1,6 @@
 document.querySelector("#btnEj1").addEventListener("click", ej1);
 
 function ej1() {
-  alert("Hola Mundo!");
+  let texto = document.querySelector("#txtEj1").value;
+  let msj = "";
 }
