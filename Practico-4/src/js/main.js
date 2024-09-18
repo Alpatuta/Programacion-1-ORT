@@ -191,11 +191,133 @@ document.querySelector("#btnEj7").addEventListener("click", ej7);
 
 function ej7() {
   let texto = document.querySelector("#txtEj7").value;
-  let primerLetra = texto.charAt(0).toUpperCase;
+  let primerLetra = texto.charAt(0).toUpperCase();
   let resto = "";
   texto = texto.toLowerCase();
 
   for (let i = 1; i < texto.length; i++) {
     resto += texto.charAt(i);
+  }
+
+  document.querySelector(
+    "#pEj7"
+  ).innerHTML = `El texto es: ${primerLetra}${resto}`;
+}
+
+//Ejercicio 8
+document.querySelector("#btnEj8").addEventListener("click", ej8);
+
+function ej8() {
+  let texto = document.querySelector("#txtEj8").value;
+  let msj = "";
+  let espaciosTotales = 0;
+  let cantidadMay = 0;
+  let cantidadMin = 0;
+
+  for (let i = 0; i < texto.length; i++) {
+    if (texto.charAt(i) === " ") {
+      espaciosTotales++;
+    }
+
+    let codigo = texto.charCodeAt(i);
+
+    if (codigo >= 65 && codigo <= 90) {
+      cantidadMay++;
+    } else if (codigo >= 97 && codigo <= 122) {
+      cantidadMin++;
+    }
+  }
+
+  document.querySelector(
+    "#pEj8"
+  ).innerHTML = ` Cantidad de mayusculas: ${cantidadMay}<br> Cantidad de minusculas: ${cantidadMin} <br> Cantidad de espacios: ${espaciosTotales}`;
+}
+
+//Ejercicio 9
+document.querySelector("#btnEj9").addEventListener("click", ej9);
+
+function ej9() {
+  let contrasenia = document.querySelector("#txtEj9").value;
+  let msj = "";
+  let primeraLetra = contrasenia.charAt(0);
+
+  if (contrasenia.length < 5) {
+    msj += "La contraseña debe tener al menos 5 caracteres";
+  } else if (
+    contrasenia.toUpperCase() === contrasenia ||
+    contrasenia.toLowerCase() === contrasenia
+  ) {
+    msj += "La contraseña debe tener al menos una mayuscula y una minuscula";
+  } else if (contrasenia.indexOf(" ") !== -1) {
+    msj += "La contraseña no puede tener espacios";
+  } else if (
+    primeraLetra === "1" ||
+    primeraLetra === "2" ||
+    primeraLetra === "3" ||
+    primeraLetra === "4" ||
+    primeraLetra === "5" ||
+    primeraLetra === "6" ||
+    primeraLetra === "7" ||
+    primeraLetra === "8" ||
+    primeraLetra === "9" ||
+    primeraLetra === "0"
+  ) {
+    msj += "La contraseña no puede comenzar con un número";
+  } else {
+    let contadorNum = 0;
+    let contadorEspecial = 0;
+
+    for (let i = 0; i < contrasenia.length; i++) {
+      let codigo = contrasenia.charCodeAt(i);
+
+      if (codigo >= 48 && codigo <= 57) {
+        contadorNum++;
+      }
+      if (
+        contrasenia.includes(".") ||
+        contrasenia.includes("#") ||
+        contrasenia.includes("@") ||
+        contrasenia.includes("!")
+      ) {
+        contadorEspecial++;
+      }
+    }
+
+    if (contadorNum === 0 || contadorEspecial === 0) {
+      msj +=
+        "La contraseña debe tener al menos un número y un caracter especial: . # @ !";
+    } else {
+      msj += `La contraseña es válida <br> Contraseña: ${contrasenia}`;
+    }
+  }
+
+  document.querySelector("#pEj9").innerHTML = msj;
+}
+
+//Ejercicio 10
+document.querySelector("#btnEj10").addEventListener("click", ej10);
+
+function ej10() {
+  let texto = document.querySelector("#txtEj10").value;
+  let suma = 0;
+
+  for (let i = 0; i < texto.length; i++) {
+    let codigo = texto.charCodeAt(i);
+    if (codigo >= 48 && codigo <= 57) {
+      suma += Number(texto.charAt(i));
+    }
+  }
+
+  document.querySelector("#pEj10").innerHTML = `Suma: ${suma}`;
+}
+
+//Ejercicio 11
+document.querySelector("#btnEj11").addEventListener("click", ej11);
+
+function ej11() {
+  let texto = document.querySelector("#txtEj11").value;
+  let msj = "";
+
+  if (texto.includes("a")) {
   }
 }
