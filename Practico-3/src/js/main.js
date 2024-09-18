@@ -252,18 +252,15 @@ function ej16() {
   let num2 = Number(document.querySelector("#txtEj16b").value);
   let msj15 = "";
   let numDeseado = 0;
-  let cortaCiclos = false;
+
 
   if (num1 < num2) {
-    for (let i = num1; i <= num2 && !cortaCiclos; i++) {
+    for (let i = num1; i <= num2; i++) {
       if (i % 4 === 0 && i % 6 === 0) {
         numDeseado = i;
-        cortaCiclos = true;
         msj15 += `El numero deseado es: ${numDeseado}`;
-      } else {
-        cortaCiclos = true;
-        msj15 += "No hay numeros que cumplan con las condiciones";
-      }
+        break;
+      } 
     }
   } else {
     msj15 += "Ingrese un numero correcto num2 tiene que ser mayor a num1";
