@@ -209,7 +209,6 @@ document.querySelector("#btnEj8").addEventListener("click", ej8);
 
 function ej8() {
   let texto = document.querySelector("#txtEj8").value;
-  let msj = "";
   let espaciosTotales = 0;
   let cantidadMay = 0;
   let cantidadMin = 0;
@@ -318,6 +317,101 @@ function ej11() {
   let texto = document.querySelector("#txtEj11").value;
   let msj = "";
 
-  if (texto.includes("a")) {
+  for (let i = 0; i < texto.length; i++) {
+    let codigo = texto.charAt(i);
+
+    if (codigo === "a") {
+      codigo = codigo.replace("a", "4");
+    } else if (codigo === "e") {
+      codigo = codigo.replace("e", "3");
+    } else if (codigo === "i") {
+      codigo = codigo.replace("i", "1");
+    } else if (codigo === "o") {
+      codigo = codigo.replace("o", "0");
+    } else if (codigo === "u") {
+      codigo = codigo.replace("u", "8");
+    }
+
+    msj += codigo;
   }
+
+  document.querySelector(
+    "#pEj11"
+  ).innerHTML = `La palabra encriptada es: ${msj}`;
+}
+
+//Ejercicio 12
+document.querySelector("#btnEj12").addEventListener("click", ej12);
+
+function ej12() {
+  let texto = document.querySelector("#txtEj12").value;
+  let msj = "";
+
+  for (let i = texto.length - 1; i >= 0; i--) {
+    let codigo = texto.charAt(i);
+
+    msj += codigo;
+  }
+
+  document.querySelector(
+    "#pEj12"
+  ).innerHTML = `La palabra invertida es: ${msj}`;
+}
+
+//Ejercicio 13
+document.querySelector("#btnEj13").addEventListener("click", ej13);
+
+function ej13() {
+  let texto = document.querySelector("#txtEj13").value;
+  let texto2 = texto.toLowerCase();
+  let contadorLetras = 0;
+
+  for (let i = 0; i < texto2.length; i++) {
+    let codigo = texto2.charAt(i);
+
+    if (codigo === texto2.charAt(0)) {
+      contadorLetras++;
+    }
+  }
+
+  document.querySelector(
+    "#pEj13"
+  ).innerHTML = `Cantidad de letras iguales a la primera: ${contadorLetras}`;
+}
+
+//Ejercicio 14
+document.querySelector("#btnEj14").addEventListener("click", ej14);
+
+function ej14() {
+  let texto = document.querySelector("#txtEj14").value;
+  let texto2 = texto.toLowerCase();
+  let msj = "";
+
+  if (texto.length !== 7) {
+    msj += "La matricula debe tener 7 caracteres";
+  } else if (texto2.charCodeAt(0) < 97 || texto2.charCodeAt(0) > 122) {
+    msj += "La matricula tiene que empezar por una letra";
+  } else if (
+    texto2.charCodeAt(1) < 48 ||
+    (texto2.charCodeAt(1) > 57 && texto2.charCodeAt(1) < 97) ||
+    texto2.charCodeAt(1) > 122
+  ) {
+    msj += "El segundo caracter debe ser una letra o un número";
+  } else if (
+    texto2.charCodeAt(2) < 48 ||
+    (texto2.charCodeAt(2) > 57 && texto2.charCodeAt(2) < 97) ||
+    texto2.charCodeAt(2) > 122
+  ) {
+    msj += "El tercer caracter debe ser una letra o un número";
+  } else if (texto2.charCodeAt(3) < 48 || texto2.charCodeAt(3) > 57) {
+    msj += "Los caracteres 4 al 7 deben ser nuevamente números";
+  } else if (texto2.charCodeAt(4) < 48 || texto2.charCodeAt(4) > 57) {
+    msj += "Los caracteres 4 al 7 deben ser nuevamente números";
+  } else if (texto2.charCodeAt(5) < 48 || texto2.charCodeAt(5) > 57) {
+    msj += "Los caracteres 4 al 7 deben ser nuevamente númer";
+  } else if (texto2.charCodeAt(6) < 48 || texto2.charCodeAt(6) > 57) {
+    msj += "Los caracteres 4 al 7 deben ser nuevamente número";
+  }
+
+  document.querySelector("#pEj14").innerHTML = msj;
 }
