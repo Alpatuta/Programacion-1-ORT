@@ -415,3 +415,151 @@ function ej14() {
 
   document.querySelector("#pEj14").innerHTML = msj;
 }
+
+//--------------------------------------------------------------------------
+
+//FUNCIONES
+
+//Ejercicio 1
+function recorrer(number1, number2) {
+  let contadorPar = 0;
+
+  for (let i = number1; i <= number2; i++) {
+    if (i % 2 === 0) {
+      contadorPar++;
+    }
+  }
+
+  return contadorPar;
+}
+
+// Ejercicio 2
+function esBisiesto(anio) {
+  let bisiesto = false;
+
+  if (
+    (anio % 4 === 0 && anio % 100 !== 0) ||
+    (anio % 100 === 0 && anio % 400 === 0)
+  ) {
+    bisiesto = true;
+  }
+
+  return bisiesto;
+}
+
+//Ejercicio 3
+function calcularAreaTriangulo(base, altura) {
+  let areaTriangulo = (base * altura) / 2;
+
+  if (isNaN(base) || isNaN(altura) || base < 0 || altura < 0) {
+    areaTriangulo = -1;
+  }
+
+  return areaTriangulo;
+}
+
+//Ejercicio 4
+function tempTotal(tempCelsius) {
+  let tempFahrenheit = 1.8 * tempCelsius + 32;
+
+  return tempFahrenheit;
+}
+
+//Ejercicio 5
+function conversion(tempF, unidadM) {
+  let resultado = 0;
+
+  switch (unidadM) {
+    case "Celsius":
+      resultado = (tempF - 32) / 1.8;
+      break;
+    case "Kelvin":
+      resultado = (tempF + 459.67) / 1.8;
+      break;
+    case "Rankine":
+      resultado = tempF + 459.67;
+      break;
+    case "Reaumur":
+      resultado = (tempF - 32) / 2.25;
+      break;
+  }
+
+  return resultado;
+}
+
+//Ejericio 6
+
+function calcularPotencia(base, exponente) {
+  let total = base ** exponente;
+
+  return total;
+}
+
+//Ejercicio 7
+function invertida(pTexto) {
+  let textoInvertido = "";
+
+  for (let i = pTexto.length - 1; i >= 0; i--) {
+    textoInvertido += pTexto.charAt(i);
+  }
+
+  return textoInvertido;
+}
+
+//Ejercicio 8
+document.querySelector("#btnSueldo").addEventListener("click", salarioData);
+
+function salarioData() {
+  let sueldo = Number(document.querySelector("#txtSueldo").value);
+  let hijos = document.querySelector("#slcHijos").value;
+
+  document.querySelector("#pSueldo").innerHTML =
+    "El salario final es: " + calculoSalario(sueldo, hijos);
+}
+
+function calculoSalario(sueldo, hijos) {
+  let dtoBPS = (sueldo * 15) / 100;
+  let dtoFRL = (sueldo * 0.1) / 100;
+  let dtoSHijos = (sueldo * 6) / 100;
+  let dtoNHijos = (sueldo * 4.5) / 100;
+  let subTotal = 0;
+
+  if (hijos === "S") {
+    subTotal = sueldo - (dtoBPS + dtoFRL + dtoSHijos);
+  } else if (hijos === "N") {
+    subTotal = sueldo - (dtoBPS + dtoFRL + dtoNHijos);
+  }
+
+  return subTotal;
+}
+
+document.querySelector("#btnIrpf").addEventListener("click", salarioTotal);
+
+function salarioTotal() {
+  let sueldoN = Number(document.querySelector("#txtSalarioN").value);
+
+  document.querySelector("#pTotal").innerHTML = calculosIRPF(sueldoN);
+}
+
+function calculosIRPF(sueldoN) {
+  let porcentaje = 0;
+  let suledoRestado = 0;
+
+  if (sueldoN >= 39621 && sueldoN <= 56600) {
+    porcentaje = (sueldoN * 10) / 100;
+  } else if (sueldoN >= 56601 && sueldoN <= 84900) {
+    porcentaje = (sueldoN * 15) / 100;
+  } else if (sueldoN >= 84901 && sueldoN <= 169800) {
+    porcentaje = (sueldoN * 24) / 100;
+  } else if (sueldoN >= 169801 && sueldoN <= 283000) {
+    porcentaje = (sueldoN * 25) / 100;
+  } else if (sueldoN >= 283001 && sueldoN <= 424500) {
+    porcentaje = (sueldoN * 27) / 100;
+  } else if (sueldoN >= 424501 && sueldoN <= 650900) {
+    porcentaje = (sueldoN * 31) / 100;
+  } else if (sueldoN >= 650901) {
+    porcentaje = (sueldoN * 37) / 100;
+  } else {
+    porcentaje = 0;
+  }
+}
