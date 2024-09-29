@@ -538,28 +538,50 @@ document.querySelector("#btnIrpf").addEventListener("click", salarioTotal);
 function salarioTotal() {
   let sueldoN = Number(document.querySelector("#txtSalarioN").value);
 
+  calculosIRPF(sueldoN);
+
   document.querySelector("#pTotal").innerHTML = calculosIRPF(sueldoN);
 }
 
 function calculosIRPF(sueldoN) {
-  let porcentaje = 0;
-  let suledoRestado = 0;
+  let irpf = 0;
 
-  if (sueldoN >= 39621 && sueldoN <= 56600) {
-    porcentaje = (sueldoN * 10) / 100;
-  } else if (sueldoN >= 56601 && sueldoN <= 84900) {
-    porcentaje = (sueldoN * 15) / 100;
-  } else if (sueldoN >= 84901 && sueldoN <= 169800) {
-    porcentaje = (sueldoN * 24) / 100;
-  } else if (sueldoN >= 169801 && sueldoN <= 283000) {
-    porcentaje = (sueldoN * 25) / 100;
-  } else if (sueldoN >= 283001 && sueldoN <= 424500) {
-    porcentaje = (sueldoN * 27) / 100;
-  } else if (sueldoN >= 424501 && sueldoN <= 650900) {
-    porcentaje = (sueldoN * 31) / 100;
-  } else if (sueldoN >= 650901) {
-    porcentaje = (sueldoN * 37) / 100;
-  } else {
-    porcentaje = 0;
+  if (sueldoN > 650901) {
+    irpf += (sueldoN - 650901) * 0.36;
+    irpf += (650900 - 424501) * 0.31;
+    irpf += (424500 - 283001) * 0.27;
+    irpf += (283000 - 169801) * 0.25;
+    irpf += (169800 - 84901) * 0.24;
+    irpf += (84900 - 56601) * 0.15;
+    irpf += (56600 - 39621) * 0.1;
+  } else if (sueldoN > 424501) {
+    irpf += (sueldoN - 424501) * 0.31;
+    irpf += (424500 - 283001) * 0.27;
+    irpf += (283000 - 169801) * 0.25;
+    irpf += (169800 - 84901) * 0.24;
+    irpf += (84900 - 56601) * 0.15;
+    irpf += (56600 - 39621) * 0.1;
+  } else if (sueldoN > 283001) {
+    irpf += (sueldoN - 283001) * 0.27;
+    irpf += (283000 - 169801) * 0.25;
+    irpf += (169800 - 84901) * 0.24;
+    irpf += (84900 - 56601) * 0.15;
+    irpf += (56600 - 39621) * 0.1;
+  } else if (sueldoN > 169801) {
+    irpf += (sueldoN - 169801) * 0.25;
+    irpf += (169800 - 84901) * 0.24;
+    irpf += (84900 - 56601) * 0.15;
+    irpf += (56600 - 39621) * 0.1;
+  } else if (sueldoN > 84901) {
+    irpf += (sueldoN - 84901) * 0.24;
+    irpf += (84900 - 56601) * 0.15;
+    irpf += (56600 - 39621) * 0.1;
+  } else if (sueldoN > 56601) {
+    irpf += (sueldoN - 56601) * 0.15;
+    irpf += (56600 - 39621) * 0.1;
+  } else if (sueldoN > 39621) {
+    irpf += (sueldoN - 39621) * 0.1;
   }
+
+  return irpf;
 }
