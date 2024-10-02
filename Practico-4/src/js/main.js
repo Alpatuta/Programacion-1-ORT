@@ -533,6 +533,7 @@ function calculoSalario(sueldo, hijos) {
   return subTotal;
 }
 
+//Ejercicio 9
 document.querySelector("#btnIrpf").addEventListener("click", salarioTotal);
 
 function salarioTotal() {
@@ -584,4 +585,14 @@ function calculosIRPF(sueldoN) {
   }
 
   return irpf;
+}
+
+//Ejercicio 10
+document.querySelector("#btnObra").addEventListener("click", mostrarObra);
+
+function mostrarObra() {
+  let cantDias = document.querySelector("#txtDias").value;
+  let cantHoras = document.querySelector("#txtHorasPorDia").value;
+  let costoMaterial = document.querySelector("#txtMateriales").value;
+  let asistente = document.querySelector("slcAsistente").value;
 }
