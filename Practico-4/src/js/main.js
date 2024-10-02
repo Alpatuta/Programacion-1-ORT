@@ -596,3 +596,17 @@ function mostrarObra() {
   let costoMaterial = document.querySelector("#txtMateriales").value;
   let asistente = document.querySelector("slcAsistente").value;
 }
+
+function diaYHoras (cantDias, cantHoras){
+    let esValido = true;
+
+    if (isNaN(cantDias) || isNaN(cantHoras) || cantDias < 1 || cantHoras < 1) {
+      esValido = false;
+    }
+
+    return esValido;
+}
+
+function calculos (){
+  
+}
