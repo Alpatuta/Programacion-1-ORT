@@ -539,11 +539,9 @@ document.querySelector("#btnIrpf").addEventListener("click", salarioTotal);
 function salarioTotal() {
   let sueldoN = Number(document.querySelector("#txtSalarioN").value);
 
-  calculosIRPF(sueldoN);
-
   document.querySelector("#pTotal").innerHTML = `El irpf es: ${calculosIRPF(
     sueldoN
-  )}`;
+  ).toFixed(2)}`;
 }
 
 function calculosIRPF(sueldoN) {
