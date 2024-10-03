@@ -541,7 +541,9 @@ function salarioTotal() {
 
   calculosIRPF(sueldoN);
 
-  document.querySelector("#pTotal").innerHTML = calculosIRPF(sueldoN);
+  document.querySelector("#pTotal").innerHTML = `El irpf es: ${calculosIRPF(
+    sueldoN
+  )}`;
 }
 
 function calculosIRPF(sueldoN) {
@@ -593,20 +595,59 @@ document.querySelector("#btnObra").addEventListener("click", mostrarObra);
 function mostrarObra() {
   let cantDias = document.querySelector("#txtDias").value;
   let cantHoras = document.querySelector("#txtHorasPorDia").value;
-  let costoMaterial = document.querySelector("#txtMateriales").value;
-  let asistente = document.querySelector("slcAsistente").value;
-}
+  let costoMaterial = Number(document.querySelector("#txtMateriales").value);
+  let trabajador = document.querySelector("#slcTrabajador").value;
 
-function diaYHoras (cantDias, cantHoras){
-    let esValido = true;
+  if (diaYHoras(cantDias, cantHoras) === true) {
+    let salario = calculosElectricista(trabajador, cantDias, cantHoras);
+    let presupuestoTrabajador = presupuesto(costoMaterial, trabajador);
+    let total = salario + presupuestoTrabajador;
 
-    if (isNaN(cantDias) || isNaN(cantHoras) || cantDias < 1 || cantHoras < 1) {
-      esValido = false;
+    if (trabajador === "E") {
+      document.querySelector(
+        "#pObra"
+      ).innerHTML = `El presupuesto total es: ${total}`;
+    } else if (trabajador === "A") {
+      document.querySelector(
+        "#pObra"
+      ).innerHTML = `El presupuesto total es: ${total}`;
     }
-
-    return esValido;
+  } else {
+    document.querySelector("#pObra").innerHTML = "Datos incorrectos";
+  }
 }
 
-function calculos (){
-  
+function diaYHoras(n1, n2) {
+  let esValido = true;
+
+  if (isNaN(n1) || isNaN(n2) || n1 < 1 || n2 < 1) {
+    esValido = false;
+  }
+
+  return esValido;
+}
+
+function calculosElectricista(pTrabajador, pDias, pHoras) {
+  let salario = 0;
+
+  if (pTrabajador === "E") {
+    salario = pDias * pHoras * 200;
+  } else if (pTrabajador === "A") {
+    salario = pDias * pHoras * 150;
+  }
+
+  return salario;
+}
+
+function presupuesto(pMateriales, pTrabajador) {
+  let totalFinal = pMateriales;
+  let agregado = pMateriales * 0.1;
+
+  if (pTrabajador === "A") {
+    totalFinal;
+  } else if (pTrabajador === "E") {
+    totalFinal += agregado;
+  }
+
+  return totalFinal;
 }
