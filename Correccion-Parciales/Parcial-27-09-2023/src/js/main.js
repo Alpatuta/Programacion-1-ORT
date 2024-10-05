@@ -1,6 +1,8 @@
 // Ejercicio 1
 document.querySelector("#btnEnviar").addEventListener("click", valorar);
 
+let contador = 0;
+
 function valorar() {
   let jugador = document.querySelector("#txtJugador").value;
   let puntos = Number(document.querySelector("#txtPuntos").value);
@@ -26,7 +28,6 @@ function valorar() {
     faltas <= 5
   ) {
     let valoracion = puntos + rebotes - faltas;
-    let contador = 0;
     let descripcion = "";
 
     if (posicion === "base") {
