@@ -1,62 +1,81 @@
+// Ejercicio 1
 document.querySelector("#btnCalcular").addEventListener("click", jugadores);
+
+let contadorExito = 0;
 
 function jugadores() {
   let nombreYApellido = document.querySelector("#txtNombreYApellido").value;
-  let sueldoMensual = document.querySelector("#txtSueldoMensual").value;
+  let sueldoMensual = Number(document.querySelector("#txtSueldoMensual").value);
   let posicion = document.querySelector("#slcPosicion").value;
-  let primerLetra = nombreYApellido.charAt(0).toLowerCase();
-  let mensaje = "";
+  let primerLetra = nombreYApellido.charCodeAt(0);
   let contadorMay = 0;
-  let contadorExito = 0;
-
-  if (nombreYApellido.length < 5 || nombreYApellido.length > 60) {
-    mensaje = "Nombre inválido";
-  } else if (primerLetra === nombreYApellido.charAt(0)) {
-    mensaje += "Nombre inválido";
-  } else {
-    mensaje;
-  }
 
   for (let i = 0; i < nombreYApellido.length; i++) {
-    let recorrer = nombreYApellido.charAt(i);
+    let recorrer = nombreYApellido.charCodeAt(i);
 
-    if (recorrer === nombreYApellido.charAt(i).toUpperCase()) {
+    if (recorrer >= 65 && recorrer <= 90) {
       contadorMay++;
     }
   }
 
-  if (contadorMay > 3) {
-    mensaje += "Nombre inválido";
+  if (
+    nombreYApellido.length >= 5 &&
+    nombreYApellido.length <= 60 &&
+    primerLetra >= 65 &&
+    primerLetra <= 90 &&
+    contadorMay <= 3 &&
+    sueldoMensual >= 0
+  ) {
+    let bonus = 0;
+
+    if (posicion === "delantero" || posicion === "arquero") {
+      bonus = sueldoMensual * 0.15;
+    } else if (posicion === "centro") {
+      bonus = sueldoMensual * 0.1;
+    }
+
+    let sueldoAnual = (sueldoMensual + bonus) * 12;
+    contadorExito++;
+
+    if (contadorExito >= 10) {
+      document.querySelector("#btnCalcular").disabled = true;
+    }
+
+    document.querySelector(
+      "#pMostrar"
+    ).innerHTML += `${nombreYApellido} - Sueldo anual: ${sueldoAnual} <br>`;
   } else {
-    mensaje;
+    document.querySelector("#pMostrar").innerHTML += `Error`;
+  }
+}
+
+//Ejercicio 2
+document.querySelector("#btnBoton").addEventListener("click", comparar);
+
+function comparar() {
+  let texto = document.querySelector("#txtTexto").value;
+  let letra = document.querySelector("#txtLetra").value;
+  let contadorMay = 0;
+  let contadorMin = 0;
+  let msj = "";
+
+  for (let i = 0; i < texto.length; i++) {
+    let recorrer = texto.charAt(i);
+
+    if (recorrer === texto.charAt(letra).toLowerCase()) {
+      contadorMin++;
+    } else if (recorrer === texto.charAt(letra).toUpperCase()) {
+      contadorMay++;
+    }
   }
 
-  let sueldoAnual = 0;
-  let bonus = 0;
-
-  if (isNaN(sueldoMensual) || sueldoMensual < 0) {
-    mensaje += "Sueldo inválido";
-  }
-
-  if (posicion === "delantero" || posicion === "arquero") {
-    bonus = sueldoMensual * 0.15;
-    sueldoMensual = sueldoMensual + bonus;
-    sueldoAnual += sueldoMensual * 12;
-    contadorExito++;
-  } else if (posicion === "centro") {
-    bonus = sueldoMensual * 0.1;
-    sueldoMensual = sueldoMensual + bonus;
-    sueldoAnual += sueldoMensual * 12;
-    contadorExito++;
+  if (contadorMin > contadorMay) {
+    msj = "Mas minisuculas que mayusculas";
+  } else if (contadorMin < contadorMay) {
+    msj = "Mas mayusculas que minusculas";
   } else {
-    sueldoAnual += sueldoMensual * 12;
-    contadorExito++;
+    msj = "Iguales";
   }
 
-  if (contadorExito > 10) {
-    document.querySelector("#btnCalcular").disabled = true;
-  }
-  document.querySelector(
-    "#pMostrar"
-  ).innerHTML = `${mensaje} <br> Jugador: ${nombreYApellido} <br> Sueldo Anual: ${sueldoAnual}`;
+  document.querySelector("#pResultado").innerHTML = msj;
 }
