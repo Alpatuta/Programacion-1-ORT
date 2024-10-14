@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Parcial 1</title>
+</head>
+<body>
+    
+    <label for="txtNombre">Nombre:</label>
+    <input type="text" id="txtNombre"><br>
+
+    <label for="txtCantidadMeses">Meses:</label>
+    <input type="text" id="txtCantidadMeses"><br>
+
+    <label for="slcTarjeta">Tipo tarjeta:</label>
+    <select id="slcTarjeta">
+        <option value="#">Seleccione...</option>
+        <option value="gold">Gold</option>
+        <option value="infinite">Infinite</option>
+        <option value="platinum">Platinum</option>
+    </select><br>
+
+    <input type="button" value="Registrar" id="btnRegistrar">
+
+    <p id="pAvisos"></p>
+    <p id="pTotal"></p>
+    <p id="pErrores"></p>
+
+    <label for="txtTexto">Texto:</label>
+    <input type="text" id="txtTexto">
+
+    <input type="button" id="btnBoton" value="Convertir">
+
+    <p id="pResultado"></p>
+
+    <script src="src/codigo.js"></script>
+</body>
+</html>
