@@ -2,7 +2,6 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Practico-5</title>
   </head>
   <body>
@@ -84,6 +83,53 @@
 
       <p id="pMostrar2"></p>
     </div>
+    <hr />
+
+    <!-- Ejercicio 7 -->
+    <div>
+      <h2>Ejercicio 7</h2>
+
+      <label for="txtNombre">Nombre: </label>
+      <input type="text" id="txtNombre" /><br />
+
+      <label for="txtEdad">Edad: </label>
+      <input type="text" id="txtEdad" /><br />
+
+      <label for="txtNacionalidad">Nacionalidad: </label>
+      <input type="text" id="txtNacionalidad" /><br /><br />
+
+      <input type="button" value="Agregar datos" id="btnAgregarDatos">
+      
+      <input type="button" value="Mostrar Tabla" id="btnTabla" />
+
+      <input type="button" value="Mostrar Tabla +18" id="btnTablaMayor" />
+
+     <br><br><table border="1">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Nacionalidad</th>
+        </tr>
+      </thead>
+      <tbody id="tablaComun"></tbody>
+     </table>
+     
+     <br><br><table border="1">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Nacionalidad</th>
+        </tr>
+      </thead>
+      <tbody id="tablaMayor"></tbody>
+     </table>
+    </div>
+    <hr>
+
+    <script src="src/js/Sistema.js"></script>
+    <script src="src/js/Persona.js"></script>
     <script src="src/js/main.js"></script>
   </body>
 </html>

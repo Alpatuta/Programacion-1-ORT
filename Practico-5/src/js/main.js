@@ -133,3 +133,39 @@ function eliminar() {
 
   document.querySelector("#pMostrar2").innerHTML = mensaje;
 }
+
+//Ejercicio 7
+
+let s = new Sistema(); 
+
+document.querySelector("#btnAgregarDatos").addEventListener("click", datosTabla);
+
+function datosTabla() {
+  let nombre = document.querySelector("#txtNombre").value;
+  let edad = Number(document.querySelector("#txtEdad").value);
+  let pais = document.querySelector("#txtNacionalidad").value;
+
+  s.alamacenarDatos(nombre, edad, pais);
+  
+}
+
+document.querySelector("#btnTabla").addEventListener("click", cargarTabla);
+
+function cargarTabla(){
+  let tablaCont = "";
+  let lista = s.personas;
+
+  for(let i = 0; i < lista.length; i++){
+    let p = lista[i];
+
+    tablaCont += `<tr>
+                    <td>${p.nombre}</td>
+                    <td>${p.edad}</td>
+                    <td>${p.nacionalidad}</td>
+                  </tr>`
+  }
+
+  document.querySelector("#tablaComun").innerHTML = tablaCont;
+}
+
+
