@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cine</title>
+    <link rel="stylesheet" href="style/estilos.css" />
+  </head>
+  <body>
+    <div id="contenedor">
+      <header>
+        <img
+          id="logo"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBRWovuUPFEU2kx5mlt5sjfigAccmFr8Jq8w&s"
+          alt="logo"
+        />
+        <nav>
+          <ul id="navPrincipal">
+            <li>
+              <a id="aRegistrarPelicula">Registrar película</a>
+            </li>
+            <li>
+              <a id="aBuscarPelicula">Buscar películas</a>
+            </li>
+            <li>
+              <a id="aPromedioPelicula">Promedio de películas</a>
+            </li>
+            <li>
+              <a id="aPeliculasPorGenero">Películas por género</a>
+            </li>
+            <li>
+              <a id="aLogout">Logout</a>
+            </li>
+          </ul>
+        </nav>
+        
+      </header>
+
+      <main>
+        <section id="sLogin">
+          <h1>Ingreso</h1>
+          <label for="txtUsuario">Nombre de usuario:</label>
+          <input type="text" id="txtUsuario" /><br />
+
+          <label for="txtContra">Contraseña:</label>
+          <input type="text" id="txtContra" /><br />
+
+          <input type="button" value="Ingresar" id="btnIngresar" />
+
+          <p id="pLogin"></p>
+        </section>
+
+        
+        <section id="sRegistroPelicula">
+          <h1>Registro de película</h1>
+          <label for="txtNombre">Nombre:</label>
+          <input type="text" id="txtNombre" /><br />
+
+          <label for="txtAnio">Año:</label>
+          <input type="text" id="txtAnio" /><br />
+
+          <label for="slcGenero">Género:</label>
+          <select id="slcGenero">
+            <option value="#">Seleccione...</option></select
+          ><br />
+
+          <label for="txtImagen">URL imagen:</label>
+          <input type="text" id="txtImagen" /><br />
+
+          <label for="txtPuntosTotales">Puntos totales:</label>
+          <input type="text" id="txtPuntosTotales" /><br />
+
+          <label for="txtCantVotantes">Cantidad de votantes:</label>
+          <input type="text" id="txtCantVotantes" /><br />
+
+          <input type="button" value="Registrar" id="btnRegistrar" />
+
+          <p id="pResultado"></p>
+        </section>
+
+        
+
+
+        <section id="sPromedioPeliculas">
+          <input type="button" id="btnPromedio" value="Mostrar promedios" />
+
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Promedio</th>
+                <th>Edad Apta</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpoTabla"></tbody>
+          </table>
+        </section>
+
+        <section id="sBuscarPeliculas">
+          <h1>Buscador de películas</h1>
+          <label for="txtNombrePelicula">Nombre:</label>
+          <input type="text" id="txtNombrePelicula" /><br />
+
+          <input type="button" value="Buscar" id="btnBuscar" />
+        
+          <p id="pBusqueda"></p>
+
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Imagen</th>
+                <th>Titulo</th>
+                <th>Año</th>
+                <th>Edad Apta</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="cuerpoBusqueda"></tbody>
+          </table>
+
+        </section>
+
+        <section id="sModificarPelicula">
+          <input type="text" id="txtId"/><br /> <!-- readonly -->
+
+          <label for="txtNombreModificar">Nombre:</label>
+          <input type="text" id="txtNombreModificar" /><br />
+
+          <label for="txtAnioModificar">Año:</label>
+          <input type="text" id="txtAnioModificar" /><br />
+
+          <label for="slcGeneroModificar">Género:</label>
+          <select id="slcGeneroModificar">
+            <option value="#">Seleccione...</option></select
+          ><br />
+
+          <label for="txtImagenModificar">URL imagen:</label>
+          <input type="text" id="txtImagenModificar" /><br />
+
+          <input type="button" value="Modificar" id="btnModificar" />
+
+          <p id="pModificar"></p>
+        </section>
+
+        <section id="sPeliculasPorGenero">
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Nombre del género</th>
+                <th>Peliculas asociadas</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpoTabla2"></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <a href="https://www.ort.edu.uy">Footer</a>
+    </footer>
+
+    <script src="js/Genero.js"></script>
+    <script src="js/Pelicula.js"></script>
+    <script src="js/Usuario.js"></script>
+    <script src="js/Sistema.js"></script>
+    <script src="js/codigo.js"></script>
+  </body>
+</html>
