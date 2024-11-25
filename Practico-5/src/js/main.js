@@ -167,5 +167,3 @@ function cargarTabla(){
 
   document.querySelector("#tablaComun").innerHTML = tablaCont;
 }
-
-
