@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cine</title>
+</head>
+<body>
+    <h1>Registro de película</h1>
+    <label for="txtNombre">Nombre:</label>
+    <input type="text" id="txtNombre"><br>
+
+    <label for="txtAnio">Año:</label>
+    <input type="text" id="txtAnio"><br>
+
+    <label for="slcGenero">Género:</label>
+    <select id="slcGenero">
+        <option value="#">Seleccione...</option>
+    </select><br>
+
+    <label for="txtPuntosTotales">Puntos totales:</label>
+    <input type="text" id="txtPuntosTotales"><br>
+
+    <label for="txtCantVotantes">Cantidad de votantes:</label>
+    <input type="text" id="txtCantVotantes"><br>
+
+    <input type="button" value="Registrar" id="btnRegistrar">
+
+    <p id="pResultado"></p>
+
+    <input type="button" id="btnPromedio" value="Mostrar promedios">
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Promedio</th>
+                <th>Edad Apta</th>
+            </tr>
+        </thead>
+        <tbody id="cuerpoTabla"></tbody>
+    </table>
+
+    <h1>Buscador de películas</h1>
+    <label for="txtNombrePelicula">Nombre:</label>
+    <input type="text" id="txtNombrePelicula"><br>
+
+    <input type="button" value="Buscar" id="btnBuscar">
+
+    <p id="pBusqueda"></p>
+
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre del género</th>
+                <th>Peliculas asociadas</th>
+            </tr>
+        </thead>
+        <tbody id="cuerpoTabla2"></tbody>
+    </table>
+
+
+    <script src="js/Genero.js"></script>
+    <script src="js/Pelicula.js"></script>
+    <script src="js/Sistema.js"></script>
+    <script src="js/codigo.js"></script>
+    
+</body>
+</html>
